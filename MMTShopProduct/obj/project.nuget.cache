@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zKX74x0DQm0tQmadM7aQolgbNrfMwT9P74xuj1gHYy+HHfPDqlytrva2JixlK6nlspH72IEgUX9v/pQSmYordw==",
+  "dgSpecHash": "dvk2hPZZD7bP0tXtxzgz0qUmSXo6B4lwH8P4a0cnYLlinj7syg+5cDUvtcUFbE0t1aK+nv2hESSMb/kQ/6L+Xw==",
   "success": true,
   "projectFilePath": "C:\\Users\\sc32762\\source\\repos\\MMTShopProduct\\MMTShopProduct\\MMTShopProduct.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sc32762\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
+    "C:\\Users\\sc32762\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\5.0.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.5.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\sc32762\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\sc32762\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

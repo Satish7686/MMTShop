@@ -14,6 +14,10 @@ namespace MMTShopProduct.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0", Deprecated = true)]
+    [ApiVersion("2.0")]
+    [ApiVersion("3.0")]
+    
     public class MMTProductController : ControllerBase
     {
         public readonly AppDbContext _context;
@@ -25,17 +29,36 @@ namespace MMTShopProduct.Controllers
         }
 
         [HttpGet("Feature")]
-        public IEnumerable<tblProduct> featuredProducts()
+        public IActionResult featuredProducts()
         {
             string _storeProc = "exec SP_ProductsFeatured";
-            return _context.tblProduct.FromSqlRaw(_storeProc);
+            try
+            {
+                var result = _context.tblProduct.FromSqlRaw(_storeProc);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+           
         }
 
         [HttpGet("Category")]
-        public IEnumerable<tblProductCategory> Categories()
+        [MapToApiVersion("2.0")]
+        public IActionResult Categories()
         {
             string _storeProc = "exec SP_ProductsCategories";
-            return _context.tblProductCategory.FromSqlRaw(_storeProc);
+            try
+            {
+                var result = _context.tblProductCategory.FromSqlRaw(_storeProc);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+            
         }
 
         [HttpGet("ProductsByCategory")]
@@ -49,8 +72,8 @@ namespace MMTShopProduct.Controllers
                     if (!string.IsNullOrEmpty(category))
                     { 
                         SqlParameter parameter = new SqlParameter("@Category", category);
-                     var result = _context.tblProduct.FromSqlRaw(_storeProc, parameter);
-                     return Ok(result);
+                        var result = _context.tblProduct.FromSqlRaw(_storeProc, parameter);
+                        return Ok(result);
 
                     }
                     else
@@ -59,9 +82,9 @@ namespace MMTShopProduct.Controllers
                     }
                    
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                  return BadRequest();
+                  return BadRequest(ex);
                 }
          
            

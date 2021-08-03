@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using MMTShopProduct.Data;
 
@@ -39,6 +40,13 @@ namespace MMTShopProduct
             });
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
+            services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+                config.ApiVersionReader = new HeaderApiVersionReader("api-version");
+            });
 
         }
 
